@@ -8,8 +8,8 @@ export function GaragePage() {
   // Стейт для формы новой машины
   const [brand, setBrand] = useState('');
   const [model, setModel] = useState('');
-  const [year, setYear] = useState(new Date().getFullYear());
-  const [mileage, setMileage] = useState(0);
+  const [year, setYear] = useState('');
+  const [mileage, setMileage] = useState('');
   const [plate, setPlate] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,8 +20,8 @@ export function GaragePage() {
       id: crypto.randomUUID(),
       brand,
       model,
-      year,
-      currentMileage: mileage,
+      year:Number(year),
+      currentMileage: Number(mileage),
       plateNumber: plate,
     });
 
@@ -29,6 +29,8 @@ export function GaragePage() {
     setBrand('');
     setModel('');
     setPlate('');
+    setYear('');
+    setMileage('');
   };
 
   return (
@@ -53,11 +55,11 @@ export function GaragePage() {
         </div>
         <div>
           <label className="block text-xs font-bold text-gray-500 uppercase">Год выпуска</label>
-          <input type="number" value={year} onChange={e => setYear(Number(e.target.value))} className="mt-1 w-full rounded-lg border border-gray-200 p-2 text-sm" />
+          <input type="number" value={year} onChange={e => setYear((e.target.value))} placeholder='Напишите год' className="mt-1 w-full rounded-lg border border-gray-200 p-2 text-sm" />
         </div>
         <div>
           <label className="block text-xs font-bold text-gray-500 uppercase">Текущий пробег (км)</label>
-          <input type="number" value={mileage} onChange={e => setMileage(Number(e.target.value))} className="mt-1 w-full rounded-lg border border-gray-200 p-2 text-sm" />
+          <input type="number" value={mileage} onChange={e => setMileage((e.target.value))} placeholder='Напишите пробег' className="mt-1 w-full rounded-lg border border-gray-200 p-2 text-sm" />
         </div>
         <div className="col-span-2">
           <label className="block text-xs font-bold text-gray-500 uppercase">Госномер</label>

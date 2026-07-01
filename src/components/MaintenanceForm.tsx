@@ -57,7 +57,7 @@ export function MaintenanceForm({ carId }: MaintenanceFormProps) {
             type="number" 
             value={mileage} 
             onChange={(e) => setMileage(e.target.value)} 
-            placeholder="120000" 
+            placeholder="0" 
             className="mt-1 w-full rounded-lg border border-gray-200 p-2 text-sm" 
             required 
           />
@@ -69,7 +69,7 @@ export function MaintenanceForm({ carId }: MaintenanceFormProps) {
             type="number" 
             value={cost} 
             onChange={(e) => setCost(e.target.value)} 
-            placeholder="150" 
+            placeholder="0" 
             className="mt-1 w-full rounded-lg border border-gray-200 p-2 text-sm" 
             required 
           />
